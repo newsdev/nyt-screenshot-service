@@ -61,21 +61,20 @@ def generate_filename(url):
     timestamp = str(time.mktime(datetime.datetime.now().timetuple())).split('.')[0]
     return "%s-%s" % (urlencode({"url": url}).split('url=')[1], timestamp)
 
-@contextlib.contextmanager
-def quitting(thing):
-    yield thing
-    thing.quit()
+
 
 def screenshot(url, base_output_path=None):
     if not base_output_path:
         base_output_path = "/tmp"
     output_path = "%s/%s.png" % (base_output_path, generate_filename(url))
 
-    with quitting(webdriver.Chrome()) as driver:
-        driver.implicitly_wait(10)
-        driver.get(url)
-        driver.get_screenshot_as_file(output_path)
-    
-    public_url = persist_file(output_path)
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    options.add_argument('window-size=1200x2400')
+    driver = webdriver.Chrome(chrome_options=options)
+    driver.implicitly_wait(15)
+    driver.get(url)
+    driver.get_screenshot_as_file(output_path)
 
+    public_url = persist_file(output_path)
     return public_url
