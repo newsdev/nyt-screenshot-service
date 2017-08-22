@@ -26,14 +26,14 @@ from pyiap.pyiap_flask_middleware import VerifyJWTMiddleware
 from screenshotter import utils
 
 settings = importlib.import_module('config.%s.settings' % utils.get_env())
-app = Flask(__name__)
-app.debug=settings.DEBUG
+application = Flask(__name__)
+application.debug=settings.DEBUG
 
-@app.route('/healthcheck', methods=['GET'])
+@application.route('/healthcheck', methods=['GET'])
 def health():
     return Response('ok')
 
-@app.route('/get/', methods=['POST', 'GET'])
+@application.route('/get/', methods=['POST', 'GET'])
 def screenshot():
 
     if request.method == "POST":
@@ -52,4 +52,4 @@ def screenshot():
     return r
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    application.run(host='0.0.0.0', port=8000, debug=True)
