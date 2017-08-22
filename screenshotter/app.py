@@ -23,7 +23,7 @@ import peewee
 from peewee import *
 from pyiap.pyiap_flask_middleware import VerifyJWTMiddleware
 
-import screenshotter.utils
+from screenshotter import utils
 
 settings = importlib.import_module('config.%s.settings' % utils.get_env())
 app = Flask(__name__)
