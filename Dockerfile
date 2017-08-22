@@ -10,7 +10,7 @@ RUN \
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        chromium-chromedriver \
+        chromedriver \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
