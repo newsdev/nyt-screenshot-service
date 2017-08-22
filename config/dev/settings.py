@@ -2,7 +2,7 @@ import os
 
 from peewee import *
 
-import utils
+import screenshotter.utils
 
 DEBUG=True
 TEMPLATE_PATH = '%s/templates/' % os.path.dirname(os.path.realpath(__file__))
