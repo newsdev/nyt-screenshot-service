@@ -6,7 +6,7 @@ RUN apt-get update \
         chromedriver \
     && rm -rf /var/lib/apt/lists/*
 
-RUN ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+RUN ln -s /usr/lib/chromium/chromedriver /usr/bin/chromedriver
 RUN pip install uwsgi
 
 COPY requirements.txt /usr/src/app/
