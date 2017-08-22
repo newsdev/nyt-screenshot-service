@@ -1,13 +1,6 @@
 
 FROM python:3.6
 
-ENV KUBERNETES_SECRET_ENV_VERSION=0.0.2
-RUN \
-  mkdir -p /etc/secret-volume && \
-  cd /usr/local/bin && \
-  curl -sfLO https://github.com/newsdev/kubernetes-secret-env/releases/download/$KUBERNETES_SECRET_ENV_VERSION/kubernetes-secret-env && \
-  chmod +x kubernetes-secret-env
-
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         chromedriver \
