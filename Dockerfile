@@ -11,7 +11,6 @@ RUN unzip chromedriver_linux64.zip
 RUN chmod +x chromedriver
 RUN cp chromedriver /usr/bin/chromedriver
 
-RUN ln -s /usr/lib/chromium/chromedriver /usr/bin/chromedriver
 RUN pip install uwsgi
 
 COPY requirements.txt /usr/src/app/
