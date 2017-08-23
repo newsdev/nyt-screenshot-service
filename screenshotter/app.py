@@ -19,8 +19,6 @@ except ImportError:
     import ConfigParser as configparser
 
 from flask import Flask, render_template, request, make_response, Response, redirect, jsonify
-import peewee
-from peewee import *
 from pyiap.pyiap_flask_middleware import VerifyJWTMiddleware
 
 from screenshotter import utils
