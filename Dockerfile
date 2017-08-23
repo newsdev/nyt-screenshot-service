@@ -18,4 +18,3 @@ ENV PYTHONPATH=/usr/src/app
 RUN /usr/src/app/deploy_setup_swap.sh
 
 EXPOSE 80
-CMD ["/usr/local/bin/uwsgi", "--ini", "/usr/src/app/config/prd/app.ini"]
