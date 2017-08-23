@@ -1,13 +1,13 @@
+import contextlib
 import datetime
 import importlib
 import os
 import re
 import time
+from urllib.parse import urlencode
 
-import contextlib
 from google.cloud import storage
 import selenium.webdriver as webdriver
-from urllib.parse import urlencode
 
 def get_env():
     return os.environ.get('DEPLOYMENT_ENVIRONMENT', 'dev')
@@ -60,8 +60,6 @@ def persist_file(path):
 def generate_filename(url):
     timestamp = str(time.mktime(datetime.datetime.now().timetuple())).split('.')[0]
     return "%s-%s" % (urlencode({"url": url}).split('url=')[1], timestamp)
-
-
 
 def screenshot(url, base_output_path=None):
     if not base_output_path:

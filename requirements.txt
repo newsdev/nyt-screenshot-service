@@ -1,4 +1,4 @@
 Flask
-google
+google-cloud-storage
 -e git+https://github.com/newsdev/nyt-pyiap.git#egg=nyt_pyiap
 selenium

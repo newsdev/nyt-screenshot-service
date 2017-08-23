@@ -11,6 +11,7 @@ import io
 import os
 import re
 import time
+import sys
 
 
 try:
@@ -19,9 +20,14 @@ except ImportError:
     import ConfigParser as configparser
 
 from flask import Flask, render_template, request, make_response, Response, redirect, jsonify
-from pyiap.pyiap_flask_middleware import VerifyJWTMiddleware
 
-from screenshotter import utils
+root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+app_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(root)
+sys.path.append(app_path)
+sys.path.append("%s/config" % root)
+
+import utils
 
 settings = importlib.import_module('config.%s.settings' % utils.get_env())
 application = Flask(__name__)
