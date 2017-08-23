@@ -1,6 +1,9 @@
 
 FROM markadams/chromium-xvfb-py3
 
+RUN apt-get update
+RUN apt-get install git
+
 RUN pip3 install uwsgi
 
 COPY requirements.txt /usr/src/app/
