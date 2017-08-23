@@ -15,6 +15,4 @@ COPY . /usr/src/app/
 
 ENV PYTHONPATH=/usr/src/app
 
-RUN /usr/src/app/deploy_setup_swap.sh
-
 EXPOSE 80
