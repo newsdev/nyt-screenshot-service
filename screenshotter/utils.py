@@ -69,8 +69,15 @@ def screenshot(url, base_output_path=None):
     output_path = "%s/%s.png" % (base_output_path, generate_filename(url))
 
     options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('window-size=1200x2400')
+
+    option_flags = [
+        "headless",
+        "window-size=1280,1280",
+        "no-zygote",
+        "no-sandbox",
+    ]
+    for flag in option_flags:
+        options.add_argument(flag)
 
     driver = webdriver.Chrome(chrome_options=options)
     driver.implicitly_wait(15)
