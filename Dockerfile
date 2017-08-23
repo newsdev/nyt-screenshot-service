@@ -1,10 +1,10 @@
 
 FROM python:3.6
 
-RUN umount -l /dev/shm
-RUN umount -l /tmp
-RUN mount -t tmpfs -o size=256m tmpfs /dev/shm
-RUN mount -t tmpfs -o size=1024m tmpfs /tmp
+RUN sudo umount -l /dev/shm
+RUN sudo umount -l /tmp
+RUN sudo mount -t tmpfs -o size=256m tmpfs /dev/shm
+RUN sudo mount -t tmpfs -o size=1024m tmpfs /tmp
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
