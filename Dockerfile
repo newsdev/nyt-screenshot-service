@@ -3,7 +3,7 @@ FROM python:3.6
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        wget unzip chromium\
+        wget unzip chromium libgconf-2-4\
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip
